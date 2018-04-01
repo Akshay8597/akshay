@@ -81,20 +81,7 @@ void distinct()
 	}
 }
 
-void age()
-{
-	int i,z;
-	if(tot>0 && tot%2==0)
-	{
-		for(z=0;z<n;z++)
-		{
-			if(prs[i].prt==arr1[z])
-			{
-				prs[i].prt+1;
-			}
-		}
-	}
-}
+
 
 int main()
 {
