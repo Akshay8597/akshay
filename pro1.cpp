@@ -44,59 +44,7 @@ return 1;
 }
 return 0;
 
-}void sortByArrival()
-{
-struct process temp;
-int i,j;
-for(i=0;i<n-1;i++)
-for(j=i+1;j<n;j++)
-{
-if(prs[i].arrive_t>prs[j].arrive_t)
-{
-temp=prs[i];
-prs[i]=prs[j];
-prs[j]=temp;
 }
-
-}
-}
-
-void sortByPriority()
-{
-struct process temp;
-int i,j;
-	for(i=1;i<n;i++)
-	{
-	for(j=i+1;j<n;j++)
-	{
-		if(prs[i].prt<prs[j].prt)
-		{
-			temp=prs[i];
-			prs[i]=prs[j];
-			prs[j]=temp;
-		}
-	}	
-	}
-}
-
-void arrived_sort()
-{
-	int i,j;
-	for(i=0;arr[i]!='\0';i++)
-	{
-		for(j=i+1;arr[j]!='\0';j++)
-		{
-			if(arr[i]<arr[j])
-			{
-				int temp;
-				temp=arr[i];
-				arr[i]=arr[j];
-				arr[j]=arr[i];
-			}
-		}
-	}
-}
-
 void arrange()
 {
 	int i,j;
@@ -171,7 +119,6 @@ char c;
 
 printf("\nEnter the time quantum:");
 scanf("%d",&tq);
-sortByArrival();
 insert(0);          
 for(time=prs[0].arrive_t;time<sum_bt;)
 {   i=remove1();
