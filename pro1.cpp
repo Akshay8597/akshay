@@ -2,6 +2,7 @@
 #include<stdio.h>
 int arr[10],arr1[10],arr2[10],k=0,tot;
 void distinct();
+int remove1();
 struct process
 {
 char name;
@@ -23,7 +24,7 @@ front=0;
 }
 
 
-int remove()
+int remove1()
 {
 if(front==-1)
 printf("underflow");
@@ -43,7 +44,40 @@ return 1;
 }
 return 0;
 
+}void sortByArrival()
+{
+struct process temp;
+int i,j;
+for(i=0;i<n-1;i++)
+for(j=i+1;j<n;j++)
+{
+if(prs[i].arrive_t>prs[j].arrive_t)
+{
+temp=prs[i];
+prs[i]=prs[j];
+prs[j]=temp;
 }
+}
+}
+
+void sortByPriority()
+{
+struct process temp;
+int i,j;
+	for(i=1;i<n;i++)
+	{
+	for(j=i+1;j<n;j++)
+	{
+		if(prs[i].prt<prs[j].prt)
+		{
+			temp=prs[i];
+			prs[i]=prs[j];
+			prs[j]=temp;
+		}
+	}	
+	}
+}
+
 void arrived_sort()
 {
 	int i,j;
@@ -100,10 +134,10 @@ void distinct()
 
 void age()
 {
-	int i;
+	int i,z;
 	if(tot>0 && tot%2==0)
 	{
-		for(int z=0;z<n;z++)
+		for(z=0;z<n;z++)
 		{
 			if(prs[i].prt==arr1[z])
 			{
@@ -136,9 +170,10 @@ char c;
 
 printf("\nEnter the time quantum:");
 scanf("%d",&tq);
+sortByArrival();
 insert(0);          
 for(time=prs[0].arrive_t;time<sum_bt;)
-{   i=remove();
+{   i=remove1();
 
 if(prs[i].remain<=tq)
 {                          
@@ -195,4 +230,4 @@ printf("\n%c\t\t%d\t\t%d\t\t%d\t\t%d",prs[i].name,prs[i].arrive_t,prs[i].burst_t
 printf("\nAverage waiting time:%f\n",avg_wt/n);
 printf("\nAverage waiting time:%f\n",avg_tt/n);
 }
-	
+
