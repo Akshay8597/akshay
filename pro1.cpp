@@ -60,6 +60,24 @@ prs[j]=temp;
 }
 }
 
+void sortByPriority()
+{
+struct process temp;
+int i,j;
+	for(i=1;i<n;i++)
+	{
+	for(j=i+1;j<n;j++)
+	{
+		if(prs[i].prt<prs[j].prt)
+		{
+			temp=prs[i];
+			prs[i]=prs[j];
+			prs[j]=temp;
+		}
+	}	
+	}
+}
+
 void arrived_sort()
 {
 	int i,j;
